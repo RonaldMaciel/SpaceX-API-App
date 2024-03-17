@@ -5,6 +5,7 @@
 //  Created by Ronald on 16/03/24.
 //
 
+import Foundation
 import UIKit
 
 class ContentTableViewCell: UITableViewCell {
@@ -37,8 +38,10 @@ class ContentTableViewCell: UITableViewCell {
         missionTitle.text = launches.missionName
         dateLabel.text = try? setUTCtoString(launches.launchDateUTC)
         rocketNameType.text = "\(launches.rocketModel.rocketName) / \(launches.rocketModel.rocketType)"
-        days.text = " 1"
-//        rocketImage
+
+        let daysSince = calculateDaysBetweenToday(and: launches.launchDateUTC)
+        days.text = "\(daysSince)"
+        
     }
     
     func setUTCtoString(_ UTCString: String) throws -> String {
@@ -48,8 +51,6 @@ class ContentTableViewCell: UITableViewCell {
         guard let localDate = formatter.date(from: UTCString) else {
             throw DateError.badDate
         }
-        print(localDate)
-        
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.amSymbol = "am"
         formatter.pmSymbol = "pm"
@@ -57,6 +58,24 @@ class ContentTableViewCell: UITableViewCell {
         let date = formatter.string(from: localDate)
         
         return date
+    }
+    
+    
+    func calculateDaysBetweenToday(and startDate: String ) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        guard let localDate = formatter.date(from: startDate) else { return DateUtil.dateNotFound.rawValue }
+        
+        guard let daysSince = calendar.dateComponents([.day],
+                                                      from: calendar.startOfDay(for: localDate),
+                                                      to: calendar.startOfDay(for: currentDate)).day else {
+            return DateUtil.dateNotFound.rawValue
+        }
+        return daysSince
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -69,5 +88,8 @@ class ContentTableViewCell: UITableViewCell {
 
 enum DateError: Error {
     case badDate
-    case dateNotFound
+}
+
+enum DateUtil: Int, Error {
+    case dateNotFound = 0
 }
