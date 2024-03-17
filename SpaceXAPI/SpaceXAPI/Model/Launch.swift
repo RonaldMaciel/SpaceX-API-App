@@ -17,33 +17,34 @@ import Alamofire
 
 // MARK: - Launches
 
-struct LaunchesResponse: Codable {
-    let items: [Launch]
-}
-
 struct Launch: Codable {
     let missionName: String
     let launchYear: String
     let launchDateUTC: String
-    let rocket: Rocket
+    let rocketModel: RocketModel
+    let links: Links
+    
+    struct Links : Codable {
+        let mission_patch : URL?
+        let flickr_images : [URL]?
+    }
 
     enum CodingKeys: String, CodingKey {
         case missionName = "mission_name"
         case launchYear = "launch_year"
         case launchDateUTC = "launch_date_utc"
-        case rocket = "rocket"
+        case rocketModel = "rocket"
+        case links = "links"
     }
 }
 
-// MARK: - Rocket
-struct Rocket: Codable {
-    let rocketID: String
+struct RocketModel: Codable {
     let rocketName: String
     let rocketType: String
-
+    
     enum CodingKeys: String, CodingKey {
-        case rocketID = "rocket_id"
         case rocketName = "rocket_name"
         case rocketType = "rocket_type"
     }
 }
+
