@@ -21,10 +21,11 @@ class LaunchListTableViewController: UITableViewController {
         setupViewModel()
     }
 
-    // MARK: - Configuration
+    // MARK: - Setup & Configuration
     private func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
     }
     
     private func setupViewModel() {
@@ -44,12 +45,11 @@ extension LaunchListTableViewController: LaunchesViewModelDelegate {
         refreshControl?.endRefreshing()
     }
     
-    // TO-DO
+    // MARK: - Error Alert
     func showErrorAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Recarregar", style: UIAlertAction.Style.default) {
             (alert: UIAlertAction!) in
-            
             self.viewModel.fetchLaunches()
         })
         self.present(alert, animated: true, completion: nil)
@@ -74,17 +74,16 @@ extension LaunchListTableViewController {
         cell.selectionStyle = .none
         
         if let url = URL(string: rocketImage) {
-           DispatchQueue.global().async {
-               if let data = try? Data(contentsOf: url) {
-                   if let image = UIImage(data: data) {
-                       DispatchQueue.main.async {
-                           cell.rocketImage.image = image
-            
-                       }
-                   }
-               }
-           }
-       }
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.rocketImage.image = image
+                        }
+                    }
+                }
+            }
+        }
         
         cell.configure(with: launch)
         return cell

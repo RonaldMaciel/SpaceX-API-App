@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - ProtocolDelegate
 protocol LaunchesViewModelDelegate: AnyObject {
     func didLoadEvents()
     func showErrorAlert(title: String, message: String)
@@ -26,7 +27,8 @@ class LaunchesListViewModel {
     public func fetchLaunches() {
         service.fetchLaunches { apiData in
             if apiData.isEmpty {
-                self.delegate?.showErrorAlert(title: "Erro", message: "Não foi possível carregar os lançamentos espaciais.")
+                self.delegate?.showErrorAlert(title: "Erro", 
+                                              message: "Não foi possível carregar os lançamentos espaciais.")
             } else {
                 self.allLauches = apiData
                 
@@ -37,9 +39,8 @@ class LaunchesListViewModel {
                         }
                     }
                 }
-                
-                self.delegate?.didLoadEvents()
             }
+            self.delegate?.didLoadEvents()
         }
     }
 }

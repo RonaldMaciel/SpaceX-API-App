@@ -8,7 +8,6 @@
 import Foundation
 
 extension Date {
-    
     var formattedString: String {
         
         let formatter = DateFormatter()

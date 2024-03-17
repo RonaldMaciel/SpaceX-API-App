@@ -29,11 +29,11 @@ class ContentTableViewCell: UITableViewCell {
     func appearSmoothly() {
         contentView.alpha = 0
         
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.7) {
             self.contentView.alpha = 1
         }
     }
-     
+    
     func configure(with launches: Launch) {
         missionTitle.text = launches.missionName
         dateLabel.text = try? setUTCtoString(launches.launchDateUTC)
@@ -41,9 +41,9 @@ class ContentTableViewCell: UITableViewCell {
 
         let daysSince = calculateDaysBetweenToday(and: launches.launchDateUTC)
         days.text = "\(daysSince)"
-        
     }
     
+    // MARK: - Public Methods
     func setUTCtoString(_ UTCString: String) throws -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -59,7 +59,6 @@ class ContentTableViewCell: UITableViewCell {
         
         return date
     }
-    
     
     func calculateDaysBetweenToday(and startDate: String ) -> Int {
         let calendar = Calendar.current
@@ -83,9 +82,9 @@ class ContentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
 
+// MARK: - Error Handler
 enum DateError: Error {
     case badDate
 }
