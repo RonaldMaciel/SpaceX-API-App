@@ -1,0 +1,8 @@
+### macOS ###
+LOCK FILE
+Pods/
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
