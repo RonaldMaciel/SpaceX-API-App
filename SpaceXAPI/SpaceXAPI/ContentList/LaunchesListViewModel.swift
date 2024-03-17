@@ -18,6 +18,7 @@ class LaunchesListViewModel {
     weak var delegate: LaunchesViewModelDelegate?
     var showldDisplaySearch: Bool = false
     var allLauches: [Launch] = []
+    var allRocketImages: [String] = []
     var filter: String?
     let service = Service()
     
@@ -28,7 +29,15 @@ class LaunchesListViewModel {
                 self.delegate?.showErrorAlert(title: "Erro", message: "Não foi possível carregar os lançamentos espaciais.")
             } else {
                 self.allLauches = apiData
-                print(apiData)
+                
+                for launch in self.allLauches {
+                    if let rocketImage = launch.links.flickr_images {
+                        if !(rocketImage.isEmpty) {
+                            self.allRocketImages.append(contentsOf: rocketImage)
+                        }
+                    }
+                }
+                
                 self.delegate?.didLoadEvents()
             }
         }

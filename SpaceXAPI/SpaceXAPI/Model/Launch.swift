@@ -25,8 +25,8 @@ struct Launch: Codable {
     let links: Links
     
     struct Links : Codable {
-        let mission_patch : URL?
-        let flickr_images : [URL]?
+        let mission_patch : String?
+        let flickr_images : [String]?
     }
 
     enum CodingKeys: String, CodingKey {
@@ -39,10 +39,12 @@ struct Launch: Codable {
 }
 
 struct RocketModel: Codable {
+    let rocketID: String
     let rocketName: String
     let rocketType: String
     
     enum CodingKeys: String, CodingKey {
+        case rocketID = "rocket_id"
         case rocketName = "rocket_name"
         case rocketType = "rocket_type"
     }
