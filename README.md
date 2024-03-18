@@ -1,7 +1,7 @@
 # SpaceX API App
 
 ## Screenshots
-<img src="Screenshots/spacex-launch1.png" alt="alt text" width="300"> <img src="Screenshots/spacex-launches2.png" alt="alt text" width="300">
+<img src="Screenshots/spacex-launches1.png" alt="alt text" width="300"> <img src="Screenshots/spacex-launches2.png" alt="alt text" width="300">
 
 ## Instalation
 
