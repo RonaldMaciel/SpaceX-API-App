@@ -87,6 +87,5 @@ extension LaunchListTableViewController {
         
         cell.configure(with: launch)
         return cell
-        
     }
 }

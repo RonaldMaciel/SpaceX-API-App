@@ -23,13 +23,30 @@ class ContentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         appearSmoothly()
+        applyAccessibility()
+    }
+    
+    private func applyAccessibility() {
+        missionTitle.isAccessibilityElement = true
+        missionTitle.accessibilityHint = "was the mission name"
+        
+        dateLabel.isAccessibilityElement = true
+        dateLabel.accessibilityHint = "was date and time of the launch"
+
+        rocketNameType.isAccessibilityElement = true
+        rocketNameType.accessibilityHint = "was the name and type of the rocket"
+
+        days.isAccessibilityElement = true
+        days.accessibilityHint = "days since it was launched"
+        
+        rocketImage.isAccessibilityElement = true
     }
     
     // MARK: - Configuration
     func appearSmoothly() {
         contentView.alpha = 0
         
-        UIView.animate(withDuration: 0.7) {
+        UIView.animate(withDuration: 0.6) {
             self.contentView.alpha = 1
         }
     }

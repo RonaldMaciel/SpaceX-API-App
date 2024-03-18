@@ -11,7 +11,6 @@ import Foundation
 protocol LaunchesViewModelDelegate: AnyObject {
     func didLoadEvents()
     func showErrorAlert(title: String, message: String)
-    
 }
 
 class LaunchesListViewModel {
