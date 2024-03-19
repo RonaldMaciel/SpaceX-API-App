@@ -48,15 +48,14 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JQW-XK-sPo">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="67" height="20.333333333333332"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                                    <accessibility key="accessibilityConfiguration">
-                                                                                        <bool key="isElement" value="NO"/>
-                                                                                    </accessibility>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="missionNameStatic"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="FalconSat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTx-2V-jkk" userLabel="missionTitle">
                                                                                     <rect key="frame" x="67" y="0.0" width="80.666666666666686" height="20.333333333333332"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="missionName"/>
                                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -69,8 +68,8 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date/time: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4tG-cM-Dhs">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="20.333333333333332"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                                    <accessibility key="accessibilityConfiguration">
-                                                                                        <bool key="isElement" value="NO"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="dateTimeStatic">
+                                                                                        <bool key="isElement" value="YES"/>
                                                                                     </accessibility>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -78,6 +77,7 @@
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24/03/2006 at 22:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaa-8o-6Wk" userLabel="dateLabel">
                                                                                     <rect key="frame" x="82.666666666666686" y="0.0" width="171" height="20.333333333333332"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="dateTime"/>
                                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -90,8 +90,8 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rocket: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3QM-Id-HRY">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="61.666666666666664" height="20.333333333333332"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                                    <accessibility key="accessibilityConfiguration">
-                                                                                        <bool key="isElement" value="NO"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="rocketNameTypeStatic">
+                                                                                        <bool key="isElement" value="YES"/>
                                                                                     </accessibility>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -99,6 +99,7 @@
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Falcon 1 / Merlin A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bQ-C8-TeP" userLabel="RocketNameType">
                                                                                     <rect key="frame" x="61.666666666666686" y="0.0" width="146" height="20.333333333333332"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="rocketNameType"/>
                                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -111,8 +112,8 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days now: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yUt-h9-VBy" userLabel="Days">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="20.333333333333332"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                                    <accessibility key="accessibilityConfiguration">
-                                                                                        <bool key="isElement" value="NO"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="daysStatic">
+                                                                                        <bool key="isElement" value="YES"/>
                                                                                     </accessibility>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -120,6 +121,7 @@
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" {today - launchDate}" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv4-Ts-oEa" userLabel="totalDays">
                                                                                     <rect key="frame" x="82.666666666666671" y="0.0" width="172.33333333333331" height="20.333333333333332"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="days"/>
                                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>

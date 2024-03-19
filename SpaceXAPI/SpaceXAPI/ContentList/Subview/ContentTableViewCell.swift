@@ -55,7 +55,6 @@ class ContentTableViewCell: UITableViewCell {
         missionTitle.text = launches.missionName
         dateLabel.text = try? setUTCtoString(launches.launchDateUTC)
         rocketNameType.text = "\(launches.rocketModel.rocketName) / \(launches.rocketModel.rocketType)"
-
         let daysSince = calculateDaysBetweenToday(and: launches.launchDateUTC)
         days.text = "\(daysSince)"
     }
@@ -65,9 +64,7 @@ class ContentTableViewCell: UITableViewCell {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         formatter.calendar = Calendar(identifier: .iso8601)
-        guard let localDate = formatter.date(from: UTCString) else {
-            throw DateError.badDate
-        }
+        guard let localDate = formatter.date(from: UTCString) else { throw DateError.badDate }
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.amSymbol = "am"
         formatter.pmSymbol = "pm"
@@ -91,6 +88,7 @@ class ContentTableViewCell: UITableViewCell {
                                                       to: calendar.startOfDay(for: currentDate)).day else {
             return DateUtil.dateNotFound.rawValue
         }
+        
         return daysSince
     }
     

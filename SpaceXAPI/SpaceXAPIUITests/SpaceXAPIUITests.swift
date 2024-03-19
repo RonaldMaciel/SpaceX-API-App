@@ -8,34 +8,62 @@
 import XCTest
 
 final class SpaceXAPIUITests: XCTestCase {
-
+    
+    struct AccessibilityIdentifier {
+        static let missionName = "missionName"
+        static let dateTime = "dateTime"
+        static let rocketNameType = "rocketNameType"
+        static let days = "days"
+        static let missionNameStatic = "missionNameStatic"
+        static let dateTimeStatic = "dateTimeStatic"
+        static let rocketNameTypeStatic = "rocketNameTypeStatic"
+        static let daysStatic = "daysStatic"
+    }
+    
+    struct TestFailureMessage {
+        static let missionNameNotDisplayed = "Mission name is not displayed"
+        static let dateTimeNotDisplayed = "Date is not displayed"
+        static let rocketNameTypeNotDisplayed = "Rocket name and type are not displayed"
+        static let daysNotDisplayed = "Days is not displayed"
+    }
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        XCUIDevice.shared.orientation = .portrait
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testDetailLabels() throws {
+
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        
+        let missionNameLabel = app.staticTexts[AccessibilityIdentifier.missionName]
+        XCTAssertTrue(missionNameLabel.exists)
+        
+        let missionNameLabelStatic = app.staticTexts[AccessibilityIdentifier.missionNameStatic]
+        XCTAssertTrue(missionNameLabelStatic.exists)
+        
+        let dateTimeLabel = app.staticTexts[AccessibilityIdentifier.dateTime]
+        XCTAssertTrue(dateTimeLabel.exists)
+        
+        let dateTimeLabelStatic = app.staticTexts[AccessibilityIdentifier.dateTimeStatic]
+        XCTAssertTrue(dateTimeLabelStatic.exists)
+        
+        let rocketNameTypeLabel = app.staticTexts[AccessibilityIdentifier.rocketNameType]
+        XCTAssertTrue(rocketNameTypeLabel.exists)
+       
+        let rocketNameTypeLabelStatic = app.staticTexts[AccessibilityIdentifier.rocketNameTypeStatic]
+        XCTAssertTrue(rocketNameTypeLabelStatic.exists)
+       
+        let daysLabel = app.staticTexts[AccessibilityIdentifier.days]
+        XCTAssertTrue(daysLabel.exists)
+        
+        let daysLabelStatic = app.staticTexts[AccessibilityIdentifier.daysStatic]
+        XCTAssertTrue(daysLabelStatic.exists)
     }
 }

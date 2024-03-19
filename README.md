@@ -16,6 +16,7 @@ A very simple SpaceX app that was build to provide information about SpaceX laun
 - List of SpaceX launchs using UITableView
 - Details about the mission 
 - Images of the rockets used
+- Accessibility with VoiceOver. 
 
 ## Technologies:
 - `Swift 5`
